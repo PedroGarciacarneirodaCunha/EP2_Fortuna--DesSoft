@@ -5,32 +5,21 @@ def transforma_base(lista_questoes):
 
     dic_proc_quest = {}
 
-    #dic_proc_quest['facil'] = []
+    # dic_proc_quest['facil'] = [] --> vou conseguir isso usando:
+    # [queste['nivel']] pq a key devolverá o valor que me interessa
+    # o novo dict.
     #dic_proc_quest['medio'] = []
     #dic_proc_quest['dificil'] = []
 
     for queste in lista_questoes:
         #print(queste)
-        for k, v in queste.items():
-
-            #if 'facil' not in v:
-            #    pass
-            #else:
-            if k == 'nivel' and v == 'facil':
-                dic_proc_quest['facil'] = [queste  queste]  # Falta achar uma for definitiva para todas  as questões de mesmo nível que aparecerem possam passadas para a lista no valor da chave do saída
-
-            #if 'medio' not in v:
-            #    pass
-            #else:
-            if k == 'nivel' and v == 'medio':
-                dic_proc_quest['medio'] = [queste]
-
-            #if 'dificil' not in v:
-            #    pass
-            #else:
-            if k == 'nivel' and v == 'dificil':
-                dic_proc_quest['dificil'] = [queste]
-                    
+        if queste['nivel'] not in dic_proc_quest.keys():
+          dic_proc_quest[queste['nivel']] = []
+          # dos 6 teste iniciais que eu fiz volta a última questão apresentada
+        dic_proc_quest[queste['nivel']].append(queste) 
+        # Resolve o problema de alguma questões desaparecerem
+        # do banco de dados sendo processado
+    
     return dic_proc_quest
 
 
