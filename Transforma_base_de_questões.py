@@ -1,21 +1,37 @@
 def transforma_base(lista_questoes):
 
-    dic_processa_quest = {}
+    if lista_questoes == []:
+        return {}
+
+    dic_proc_quest = {}
+
+    #dic_proc_quest['facil'] = []
+    #dic_proc_quest['medio'] = []
+    #dic_proc_quest['dificil'] = []
 
     for queste in lista_questoes:
         #print(queste)
-        for k,v in queste.items():
-            print(v)
-            
-            if k['nivel'] == 'facil':
-                #lista_values.append()
-                dic_processa_quest['facil'] = []
-                dic_processa_quest['facil'].append()
-            elif k['nivel'] == 'medio':
-                dic_processa_quest['medio'] += queste
-            elif k['nivel'] == 'dificil':
-                dic_processa_quest['dificil'] += queste
-    return dic_processa_quest
+        for k, v in queste.items():
+
+            #if 'facil' not in v:
+            #    pass
+            #else:
+            if k == 'nivel' and v == 'facil':
+                dic_proc_quest['facil'] = [queste  queste]  # Falta achar uma for definitiva para todas  as questões de mesmo nível que aparecerem possam passadas para a lista no valor da chave do saída
+
+            #if 'medio' not in v:
+            #    pass
+            #else:
+            if k == 'nivel' and v == 'medio':
+                dic_proc_quest['medio'] = [queste]
+
+            #if 'dificil' not in v:
+            #    pass
+            #else:
+            if k == 'nivel' and v == 'dificil':
+                dic_proc_quest['dificil'] = [queste]
+                    
+    return dic_proc_quest
 
 
 print(transforma_base([
@@ -53,4 +69,4 @@ print(transforma_base([
           'correta': 'B'}
 ]))
 
-#
+print(transforma_base([]))
