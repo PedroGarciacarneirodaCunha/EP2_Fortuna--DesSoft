@@ -1,17 +1,23 @@
 from random import choice
 
-def sorteia_questao_inedida(questoes, nivel, questoes_sorteadas):
+def sorteia_questao(questoes, nivel):
 
     for level in questoes.keys():
-        for questao in questoes_sorteadas:
+        if level == nivel:
+            return choice(questoes[level])
 
-            if level == nivel:
-                if questoes[level] not in questoes_sorteadas:
-                    ale = choice(questoes[level])
-                    questoes_sorteadas.append(ale)
-                else:
-                    continue
-    return ale
+
+def sorteia_questao_inedida(questoes, nivel, questoes_sorteadas):
+
+  for quest in range(len(questoes)):
+
+    ale = choice(questoes[nivel])
+
+    if ale not in questoes_sorteadas:
+      questoes_sorteadas.append(ale)
+      break
+
+  return ale
 
     
 
