@@ -1,4 +1,4 @@
-def valida_questoes():
+def valida_questoes(l_questoes):
 
     return
 
